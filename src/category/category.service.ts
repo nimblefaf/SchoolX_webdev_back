@@ -1,10 +1,9 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
-import { InjectRepository } from '@nestjs/typeorm';
-
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
+import { InjectRepository } from '@nestjs/typeorm';
 import { CategoryEntity } from './entities/category.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class CategoryService {
@@ -12,16 +11,16 @@ export class CategoryService {
     @InjectRepository(CategoryEntity)
     private repository: Repository<CategoryEntity>,
   ) {}
-
-  async create(dto: CreateCategoryDto) {
+  
+  create(dto: CreateCategoryDto) {
     return this.repository.save(dto);
   }
 
-  async findAll() {
+  findAll() {
     return this.repository.find();
   }
 
-  async findOne(id: number) {
+  findOne(id: number) {
     return this.repository.findOneBy({ id });
   }
 
@@ -36,7 +35,7 @@ export class CategoryService {
     return this.repository.save(toUpdate);
   }
 
-  async delete(id: number) {
+  remove(id: number) {
     return this.repository.delete(id);
   }
 }
