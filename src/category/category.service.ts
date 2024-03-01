@@ -11,7 +11,7 @@ export class CategoryService {
     @InjectRepository(CategoryEntity)
     private repository: Repository<CategoryEntity>,
   ) {}
-  
+
   create(dto: CreateCategoryDto) {
     return this.repository.save(dto);
   }
