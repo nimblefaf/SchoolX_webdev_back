@@ -2,7 +2,7 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateCpuProductDto } from './dto/create-cpu_product.dto';
 import { UpdateCpuProductDto } from './dto/update-cpu_product.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Cpu_ProductEntity } from './entities/Cpu_Product.entity';
+import { Cpu_ProductEntity } from './entities/cpu_product.entity';
 import { Repository } from 'typeorm';
 import { DeepPartial } from 'typeorm';
 
